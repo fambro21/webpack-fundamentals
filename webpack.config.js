@@ -16,4 +16,9 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   devtool: "inline-source-map",
+  // Configure Webpack Dev Server
+  mode: "development",
+  devServer: {
+    static: "./dist",
+  },
 };

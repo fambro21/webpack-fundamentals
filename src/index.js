@@ -7,7 +7,7 @@
 
   function addToCart(item) {
     cart.push(item);
-    log("added: " + item);
+    log("added new item: " + item);
   }
 
   function removeFromCart(idx) {
