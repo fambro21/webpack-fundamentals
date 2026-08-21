@@ -18,7 +18,7 @@ module.exports = {
   },
   devtool: "inline-source-map",
   // Configure Webpack Dev Server
-  mode: "development",
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
   devServer: {
     static: "./dist",
   },
