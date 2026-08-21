@@ -22,6 +22,7 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   // Using Typescript loader
   module: {
@@ -44,6 +45,8 @@ module.exports = {
   // Configure Webpack Dev Server
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   devServer: {
+    // Refresh the build for live reload
+    watchFiles: ["src/**/*", "index.html"],
     static: "./dist",
   },
 };
