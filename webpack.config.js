@@ -33,14 +33,15 @@ module.exports = {
         use: "ts-loader",
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
         // last to first
-        // css-loader first
-        // style-loader second
+        // sass-loader first
+        // css-loader second
+        // style-loader third
         // css-loader: let Webpack understand CSS files
         // style-loader: takes that CSS and puts it onto the web page
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
