@@ -1,5 +1,12 @@
 const path = require("path");
 
+// Html Webpack Plugin automatically creates your HTML file and injects
+// your Javascript (and CSS) files into it.
+
+// Without HtmlWebpackPlugin: You have to manually add your <script> and <link>
+// tags every time Webpack changes the filenames.
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 // Create a config to build webpack
 // npx webpack init
 
@@ -9,14 +16,11 @@ const path = require("path");
 module.exports = {
   // where to start looking at the code
   // change string to array to server multiple files
-  entry: {
-    index: "./src/index",
-    home: "./src/home",
-  },
+  entry: ["./src/index", "./src/home"],
 
   // once compiled where to place the code
   output: {
-    filename: "[name].js",
+    filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
   // Using Typescript loader
@@ -31,6 +35,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [new HtmlWebpackPlugin({ template: "./index.html" })],
   // Looks to resolve the extensions on files
   resolve: {
     extensions: [".ts", ".js"],
