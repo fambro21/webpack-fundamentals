@@ -1,0 +1,1 @@
+!function(){var o,a;[].push(o="Waterproof Boots"),a="added: "+o,console.log(a+a)}();
