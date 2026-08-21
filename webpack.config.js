@@ -41,7 +41,19 @@ module.exports = {
         // style-loader third
         // css-loader: let Webpack understand CSS files
         // style-loader: takes that CSS and puts it onto the web page
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [["postcss-preset-env", {}]],
+              },
+            },
+          },
+          "sass-loader",
+        ],
       },
     ],
   },
