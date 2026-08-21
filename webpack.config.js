@@ -9,27 +9,28 @@ const path = require("path");
 module.exports = {
   // where to start looking at the code
   // change string to array to server multiple files
-  entry: ["./src/index.js", "./src/home.js"],
+  entry: ["./src/index", "./src/home"],
 
   // once compiled where to place the code
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
-  // Using Babel loader
+  // Using Typescript loader
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
+          loader: "ts-loader",
         },
       },
     ],
+  },
+  // Looks to resolve the extensions on files
+  resolve: {
+    extensions: [".ts", ".js"],
   },
   devtool: "inline-source-map",
   // Configure Webpack Dev Server
