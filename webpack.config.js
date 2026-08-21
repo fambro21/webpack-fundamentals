@@ -8,7 +8,8 @@ const path = require("path");
 
 module.exports = {
   // where to start looking at the code
-  entry: "./src/index.js",
+  // change string to array to server multiple files
+  entry: ["./src/index.js", "./src/home.js"],
 
   // once compiled where to place the code
   output: {
