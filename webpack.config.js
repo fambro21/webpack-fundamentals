@@ -9,11 +9,14 @@ const path = require("path");
 module.exports = {
   // where to start looking at the code
   // change string to array to server multiple files
-  entry: ["./src/index", "./src/home"],
+  entry: {
+    index: "./src/index",
+    home: "./src/home",
+  },
 
   // once compiled where to place the code
   output: {
-    filename: "main.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
   // Using Typescript loader
