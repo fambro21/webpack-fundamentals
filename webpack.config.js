@@ -16,6 +16,21 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
+  // Using Babel loader
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
+  },
   devtool: "inline-source-map",
   // Configure Webpack Dev Server
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
