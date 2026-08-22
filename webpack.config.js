@@ -7,6 +7,10 @@ const path = require("path");
 // tags every time Webpack changes the filenames.
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+// CopyWebpackPlugin is used to copy files or folders from your source project
+// into your Webpack output (dist) folder without changing them.
+const CopyPlugin = require("copy-webpack-plugin");
+
 // Create a config to build webpack
 // npx webpack init
 
@@ -57,7 +61,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./index.html" })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./index.html" }),
+    new CopyPlugin({
+      patterns: [{ from: "./src/images", to: "images" }],
+    }),
+  ],
   // Looks to resolve the extensions on files
   resolve: {
     extensions: [".ts", ".js"],
